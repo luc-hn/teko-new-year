@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import logo from '~/assets/New_Year-29.jpg'
+import logo from '~/assets/newyear.jpg'
 import VuesaxLogo from '~/components/VuesaxLogo.vue'
 
 export default {
