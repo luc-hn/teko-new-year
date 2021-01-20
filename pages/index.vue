@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-   <img class="image" :src="logo" />
+   <div>
+     <img class="image" :src="logo" />
+     <div class="text">Something new is going to deploy</div>
+   </div>
   </div>
 </template>
 
@@ -21,6 +24,10 @@ export default {
 </script>
 
 <style>
+.text {
+  font-size: 20px;
+  font-style: italic;
+}
 .container {
   margin: 0 auto;
   min-height: 100vh;
