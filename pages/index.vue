@@ -14,13 +14,27 @@
 </template>
 
 <script>
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
+import logo from '~/assets/newyear.jpg'
+import VuesaxLogo from '~/components/VuesaxLogo.vue'
+
+export default {
+  components: {
+    VuesaxLogo,
+  },
+  data: function () {
+      return {
+          logo: logo
+      }
+  },
+  mounted() {
     var count = document.getElementById('count');
-    var countBall = count.value;
+    console.log(count);
+    var countBall = 10;
+    if (count && count.value) {
+      countBall = count.value
+    }
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-      countBall = Math.round(count.value / 3);
+      countBall = Math.round(countBall / 3);
     }
     var canvas = document.getElementById('canvas');
 
@@ -238,93 +252,11 @@
     window.addEventListener('resize', function() {
       onResize();
     });
-
-  }); 
-})();
-import logo from '~/assets/newyear.jpg'
-import VuesaxLogo from '~/components/VuesaxLogo.vue'
-
-export default {
-  components: {
-    VuesaxLogo,
-  },
-  data: function () {
-      return {
-          logo: logo
-      }
   }
 }
 </script>
 
 <style>
-/* .text {
-  font-size: 20px;
-  font-style: italic;
-}
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.image {
-  width: 100%;
-  height: auto;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 55px;
-  color: #35495e;
-  letter-spacing: 1px;
-  text-transform: capitalize;
-  margin: 25px 0;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 1.1rem;
-  color: #526488;
-  word-spacing: 2px;
-  padding-bottom: 15px;
-  max-width: 600px;
-}
-
-.subtitle a {
-  font-weight: 500;
-  color: inherit;
-}
-
-.links {
-  padding-top: 15px;
-  margin-bottom: 20px;
-}
-
-.content-logos {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 500px;
-}
-
-.plus {
-  font-size: 2.5rem;
-  margin: 15px;
-  color: #35495e;
-}
-
-.h3 {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 400;
-  margin: 10px;
-} */
 * {
   margin: 0;
   padding: 0;
