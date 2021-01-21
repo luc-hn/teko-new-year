@@ -6,15 +6,25 @@
    </div>
   </div> -->
   <div>
-    <canvas id="canvas">Canvas not supported.</canvas>
+    <canvas id="canvas" :style="{
+      backgroundImage: `url(${logo})`,
+      backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center bottom'
+    }">Canvas not supported.</canvas>
+    <div>
+      <img src="https://png.pngtree.com/thumb_back/fh260/background/20190828/pngtree-dark-vector-abstract-background-image_302715.jpg" />
+    </div>
     <div class="controller">
       <input type="range" id="count" min="0" max="50" step="1" value="10">
+    </div>
+    <div class="background">
     </div>
   </div>
 </template>
 
 <script>
-import logo from '~/assets/newyear.jpg'
+import logo from '~/assets/night-background.jpg'
 import VuesaxLogo from '~/components/VuesaxLogo.vue'
 
 export default {
@@ -27,8 +37,9 @@ export default {
       }
   },
   mounted() {
+    var background = new Image();
+    background.src = logo;
     var count = document.getElementById('count');
-    console.log(count);
     var countBall = 10;
     if (count && count.value) {
       countBall = count.value
@@ -139,7 +150,6 @@ export default {
     var fireGravity = 0.01;
 
     function getColor() {
-      // var color = "rgb(" + rand(0, 255) + ',' + rand(0, 255) + ',' + rand(0, 255) + ")";
       return "#925F2A";
     }
     function Fire(ctx, x, y, c, d, r) {
@@ -209,11 +219,10 @@ export default {
     ********************/
     
     function render(){
-      ctx.globalCompositeOperation = "darken";
+      ctx.globalCompositeOperation = "xor";
       ctx.globalAlpha = 0.05;
       ctx.fillStyle = "rgb(0,0,0)";
       ctx.fillRect(0, 0, X, Y);
-      ctx.globalCompositeOperation = "source-over";
       ctx.globalAlpha = 1;
       for (var i = 0; i < balls.length; i++) {
         balls[i].render();
@@ -257,6 +266,9 @@ export default {
 </script>
 
 <style>
+body {
+  background: #000;
+}
 * {
   margin: 0;
   padding: 0;
@@ -264,7 +276,6 @@ export default {
 
 canvas#canvas {
   display: block;
-  background: #000;
 }
 
 div.controller {
