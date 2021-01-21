@@ -16,9 +16,6 @@
       <img src="https://png.pngtree.com/thumb_back/fh260/background/20190828/pngtree-dark-vector-abstract-background-image_302715.jpg" />
     </div>
     <div class="controller">
-      <input type="range" id="count" min="0" max="50" step="1" value="10">
-    </div>
-    <div class="background">
     </div>
   </div>
 </template>
@@ -45,7 +42,7 @@ export default {
       countBall = count.value
     }
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-      countBall = Math.round(countBall / 3);
+      countBall = 2;
     }
     var canvas = document.getElementById('canvas');
 
@@ -101,7 +98,7 @@ export default {
       this.y = y;
       this.r = rand(1, 3);
       this.v = {
-        y: rand(1, 5) * 1.2
+        y: rand(1, 5) * 1
       };
       this.bloomY = rand(0, Y / 2);
     };
@@ -247,16 +244,6 @@ export default {
         fires[i].resize();
       }
     }
-
-    count.addEventListener('change', function() {
-      balls = [];
-      var val = this.value;
-      ballNum = val;
-      for (var i = 0; i < ballNum; i++) {
-        var ball = new Ball(ctx, rand(0, X), Y);
-        balls.push(ball);
-      }
-    });
 
     window.addEventListener('resize', function() {
       onResize();
