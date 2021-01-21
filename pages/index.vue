@@ -34,7 +34,7 @@ export default {
     var background = new Image();
     background.src = logo;
     var count = document.getElementById('count');
-    var countBall = 10;
+    var countBall = 6;
     if (count && count.value) {
       countBall = count.value
     }
