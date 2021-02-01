@@ -1,8 +1,8 @@
 <template>
   <div class="fireworks">
-    <vs-button to="/teko" class="btn-teko" warn gradient
+    <!-- <vs-button to="/teko" class="btn-teko" warn gradient
       >Tìm hiểu Teko</vs-button
-    >
+    > -->
     <canvas
       id="canvas"
       :style="{
